@@ -1,8 +1,11 @@
 document.getElementById('searchButton').addEventListener('click', function() {
     const query = document.getElementById('searchInput').value.trim();
     if (query) {
-        const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info&titles=${encodeURIComponent(query)}&inprop=url&origin=*`;
-        fetch(url)
+        // Usando um proxy CORS
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const wikipediaUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info&titles=${encodeURIComponent(query)}&inprop=url&origin=*`;
+
+        fetch(proxyUrl + wikipediaUrl)
             .then(response => response.json())
             .then(data => {
                 const pages = data.query.pages;
