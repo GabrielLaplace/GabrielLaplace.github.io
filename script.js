@@ -1,38 +1,20 @@
 document.getElementById('searchButton').addEventListener('click', function() {
     const query = document.getElementById('searchInput').value.trim();
     if (query) {
-        // Usando um proxy CORS
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const wikipediaUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info&titles=${encodeURIComponent(query)}&inprop=url&origin=*`;
+        const cifraClubUrl = `https://www.cifraclub.com.br/busca/?q=${encodeURIComponent(query)}`;
+        const songsterrUrl = `https://www.songsterr.com/a/wa/songlist?s=${encodeURIComponent(query)}`;
+        const ultimateGuitarUrl = `https://www.ultimate-guitar.com/search.php?search_type=&value=${encodeURIComponent(query)}`;
 
-        fetch(proxyUrl + wikipediaUrl)
-            .then(response => response.json())
-            .then(data => {
-                const pages = data.query.pages;
-                const pageId = Object.keys(pages)[0];
-                const page = pages[pageId];
-                const resultText = document.getElementById('resultText');
-                const resultLink = document.getElementById('resultLink');
+        document.getElementById('cifraClubLink').href = cifraClubUrl;
+        document.getElementById('songsterrLink').href = songsterrUrl;
+        document.getElementById('ultimateGuitarLink').href = ultimateGuitarUrl;
 
-                if (page.missing) {
-                    resultText.textContent = 'Nenhum resultado encontrado.';
-                    resultLink.href = '#';
-                    resultLink.textContent = '';
-                } else {
-                    resultText.textContent = page.title;
-                    resultLink.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title)}`;
-                    resultLink.textContent = 'Leia na Wikipédia';
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao buscar dados:', error);
-                document.getElementById('resultText').textContent = 'Erro ao buscar dados.';
-                document.getElementById('resultLink').href = '#';
-                document.getElementById('resultLink').textContent = '';
-            });
+        document.getElementById('cifraClub').style.display = 'block';
+        document.getElementById('songsterr').style.display = 'block';
+        document.getElementById('ultimateGuitar').style.display = 'block';
     } else {
-        document.getElementById('resultText').textContent = 'Digite um texto para buscar.';
-        document.getElementById('resultLink').href = '#';
-        document.getElementById('resultLink').textContent = '';
+        document.getElementById('cifraClub').style.display = 'none';
+        document.getElementById('songsterr').style.display = 'none';
+        document.getElementById('ultimateGuitar').style.display = 'none';
     }
 });
