@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+     <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Buscar na Wikipédia</h1>
+            <h1>Buscar tab</h1>
         </header>
         <main>
-            <input type="text" id="searchInput" placeholder="Digite o texto...">
+            <input type="text" id="searchInput" placeholder="Digite o nome da música...">
             <button id="searchButton">Buscar</button>
-            <div id="result">
-                <p id="resultText"></p>
-                <a id="resultLink" href="#" target="_blank"></a>
+            <div id="results">
+                <div class="result" id="cifraClub">
+                    <h2>Cifra Club</h2>
+                    <a id="cifraClubLink" href="#" target="_blank">Ver resultados</a>
+                </div>
+                <div class="result" id="songsterr">
+                    <h2>Songsterr</h2>
+                    <a id="songsterrLink" href="#" target="_blank">Ver resultados</a>
+                </div>
+                <div class="result" id="ultimateGuitar">
+                    <h2>Ultimate Guitar</h2>
+                    <a id="ultimateGuitarLink" href="#" target="_blank">Ver resultados</a>
+                </div>
             </div>
         </main>
-        <footer>
-            <p>&copy; Buscar na Wiki</p>
-        </footer>
     </div>
 </body>
 </html>
