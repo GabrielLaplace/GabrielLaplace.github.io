@@ -1,5 +1,6 @@
 document.getElementById('searchButton').addEventListener('click', function() {
     const query = document.getElementById('searchInput').value.trim();
+    
     if (query) {
         const cifraClubUrl = `https://www.cifraclub.com.br/busca/?q=${encodeURIComponent(query)}`;
         const songsterrUrl = `https://www.songsterr.com/a/wa/songlist?s=${encodeURIComponent(query)}`;
@@ -12,7 +13,9 @@ document.getElementById('searchButton').addEventListener('click', function() {
         document.getElementById('cifraClub').style.display = 'block';
         document.getElementById('songsterr').style.display = 'block';
         document.getElementById('ultimateGuitar').style.display = 'block';
-    } else {
+    } 
+    else 
+    {
         document.getElementById('cifraClub').style.display = 'none';
         document.getElementById('songsterr').style.display = 'none';
         document.getElementById('ultimateGuitar').style.display = 'none';
