@@ -2,9 +2,9 @@ document.getElementById('searchButton').addEventListener('click', function() {
     const query = document.getElementById('searchInput').value.trim();
     
     if (query) {
-        const cifraClubUrl = `https://www.cifraclub.com.br/busca/?q=${encodeURIComponent(query)}`;
-        const songsterrUrl = `https://www.songsterr.com/a/wa/songlist?s=${encodeURIComponent(query)}`;
-        const ultimateGuitarUrl = `https://www.ultimate-guitar.com/search.php?search_type=&value=${encodeURIComponent(query)}`;
+        const cifraClubUrl = `https://www.cifraclub.com.br/?q=${encodeURIComponent(query)}`;
+        const songsterrUrl = `https://www.songsterr.com/?pattern=${encodeURIComponent(query)}`;
+        const ultimateGuitarUrl = `https://www.ultimate-guitar.com/search.php?search_type=title&value=a${encodeURIComponent(query)}`;
 
         document.getElementById('cifraClubLink').href = cifraClubUrl;
         document.getElementById('songsterrLink').href = songsterrUrl;
