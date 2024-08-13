@@ -4,7 +4,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
     if (query) {
         const cifraClubUrl = `https://www.cifraclub.com.br/?q=${encodeURIComponent(query)}`;
         const songsterrUrl = `https://www.songsterr.com/?pattern=${encodeURIComponent(query)}`;
-        const ultimateGuitarUrl = `https://www.ultimate-guitar.com/search.php?search_type=title&value=a${encodeURIComponent(query)}`;
+        const ultimateGuitarUrl = `https://www.ultimate-guitar.com/search.php?search_type=title&value=${encodeURIComponent(query)}`;
 
         document.getElementById('cifraClubLink').href = cifraClubUrl;
         document.getElementById('songsterrLink').href = songsterrUrl;
